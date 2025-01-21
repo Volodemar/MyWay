@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,21 +25,21 @@ public class UIGameWindow : UIWindow
 	public void OnClickUpdateContent()
     {
 		buttonUpdate.interactable = false;
+		buttonIncrement.interactable = false;
 
-		StartCoroutine(_gameLevel.assetBundleLoader.LoadAssetBundleSprite("Lestat-256х256", (Sprite sprite) =>
-        {
-            buttonIncrement.image.sprite = sprite;
+		StartCoroutine(_gameLevel.UpdateContent((Sprite sprite) => 
+		{
+			buttonIncrement.image.sprite = sprite;
 
 			var gameGata = GameData.Instance;
-
-			gameGata.PlayerData.SetStartingNumber(gameGata.SettingsData.StartingNumber);
 
 			textMessage.text = gameGata.SettingsData.HelloyMessage;
 
 			textStartingNumber.text = gameGata.PlayerData.StartingNumber.ToString();
 
 			buttonUpdate.interactable = true;
-        }));       
+			buttonIncrement.interactable = true;
+		}));
     }
 
 	public void OnClickIncrement()

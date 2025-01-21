@@ -9,8 +9,6 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController Instance { get; private set; }
 
-	public AssetBundleLoader assetBundleLoader;
-
     private void Awake()
     {
         Instance = this;
