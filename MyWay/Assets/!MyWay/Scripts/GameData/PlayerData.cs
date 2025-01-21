@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class SavePlayerData 
 {
-	[SerializeField] public int StartNumber	= 0;
+	[SerializeField] public int StartingNumber	= 0;
 }
 
 /// <summary>
@@ -13,16 +13,16 @@ public class SavePlayerData
 /// </summary>	
 public class PlayerData
 {
-    public int StartNumber { get; private set; } = 0;
+    public int StartingNumber { get; private set; } = 0;
 
 	private string _path;
 
 	#region Методы данных
-	public void SetStartNumber(int value) => StartNumber = value;
+	public void SetStartingNumber(int value) => StartingNumber = value;
 
-	public void ModifyStartNumber(int value)
+	public void ModifyStartingNumber(int value)
 	{
-		StartNumber = Mathf.Max(0, StartNumber + value);
+		StartingNumber = Mathf.Max(0, StartingNumber + value);
 	}
 	#endregion
 
@@ -37,13 +37,13 @@ public class PlayerData
 	/// </summary>
     public void NewGame()
 	{
-		StartNumber = 0;
+		StartingNumber = 0;
 	}
 
 	public void Save()
 	{
 		SavePlayerData save = new SavePlayerData();
-		save.StartNumber = StartNumber;
+		save.StartingNumber = StartingNumber;
 
         string json = JsonUtility.ToJson(save);
         File.WriteAllText(_path, json);
@@ -55,7 +55,7 @@ public class PlayerData
 		{ 
 			string json = File.ReadAllText(_path);
 			SavePlayerData load = JsonUtility.FromJson<SavePlayerData>(json);
-			StartNumber	= load.StartNumber;
+			StartingNumber	= load.StartingNumber;
 		}
 		else
 		{

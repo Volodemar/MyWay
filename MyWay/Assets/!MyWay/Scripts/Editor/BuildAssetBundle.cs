@@ -5,9 +5,9 @@ using UnityEngine;
 /// <summary>
 /// Создание AssedBundle для выгрузки в Clouds
 /// </summary>	
-public class BuildAssetBundle : MonoBehaviour
+public class BuildAssetBundle
 {
-	[MenuItem("Assets/Create Assets Bundles")]
+	[MenuItem("Project/Create Assets Bundles")]
 	private static void BuidlAllAssetsBundle()
 	{
 		string path = Application.dataPath + "/../AssetsBundles";
