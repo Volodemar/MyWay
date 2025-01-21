@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class SavePlayerData 
 {
-	[SerializeField] public int StartingNumber	= 0;
+	public int StartingNumber	= 0;
 }
 
 /// <summary>
@@ -37,7 +37,7 @@ public class PlayerData
 	/// </summary>
     public void NewGame()
 	{
-		StartingNumber = 0;
+		StartingNumber = GameData.Instance.SettingsData.StartingNumber;
 	}
 
 	public void Save()

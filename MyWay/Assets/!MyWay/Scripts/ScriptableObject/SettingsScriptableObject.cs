@@ -3,13 +3,6 @@ using NaughtyAttributes;
 using UnityEngine;
 using System.IO;
 
-[Serializable]
-public class SettingsData
-{
-	[SerializeField] public int StartingNumber	= 0;
-	[SerializeField] public string HelloyMessage = "";
-}
-
 /// <summary>
 /// Конфиг приложения
 /// </summary>	

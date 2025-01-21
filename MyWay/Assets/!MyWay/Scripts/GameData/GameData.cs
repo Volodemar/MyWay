@@ -8,6 +8,7 @@ public class GameData : MonoBehaviour
     public static GameData Instance { get; private set; }
 
 	public PlayerData PlayerData = new PlayerData();
+	public SettingsData SettingsData = new SettingsData();
 
 	private void Awake()
 	{

@@ -27,4 +27,10 @@ public class GameManager : MonoBehaviour
 			LevelController.Instance?.OnLevelInit();
 		}
 	}
+
+	private void OnApplicationQuit()
+	{
+		// Сохраняемся при выходе из приложения
+		GameData.Instance.Save();
+	}
 }

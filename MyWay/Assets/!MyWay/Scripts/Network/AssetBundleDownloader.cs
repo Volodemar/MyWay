@@ -37,6 +37,12 @@ public class AssetBundleDownloader : MonoBehaviour
             {
                 Directory.CreateDirectory(unpackPath);
             }
+            else
+            {
+                // Очистка от старых данных
+                Directory.Delete(unpackPath, true);
+                Directory.CreateDirectory(unpackPath);
+            }
 
             // Сохраняем байтовый массив в файл
             string zipPath = Path.Combine(unpackPath, "AssetsBundles.zip");
